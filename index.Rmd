@@ -30,6 +30,9 @@ barChartTipoAccidente <- ggplot(data, aes(x = Tipo.de.accidente)) +
 
 ggplotly(barChartTipoAccidente)
 ```
+
+Con la ayuda de esta gráfica podemos observar un comportamiento interesante, y que es una situación que normalmente pensamos y es el hecho de que la mayor cantidad de accidentes de tránsito involucran motocicletas, la gráfica nos permite confirmar dicho pensamiento, pues la colisión con motocicleta es la que tiene la mayor frecuencia, y con una diferencia bastante considerable sobre el resto de los tipos de accidentes.  
+
 # Treemap para cantidad de accidentes por provincia
 ```{r, echo=FALSE}
 dfProvincia <- data %>% count(Provincia)
@@ -43,6 +46,8 @@ treeMapProvincia <- plot_ly(dfProvincia,
 
 treeMapProvincia
 ```
+Por medio de este treemap podemos visualizar que la provincia donde ocurren mayor cantidad de accidentes es San José, y con una diferencia significativa sobre la siguiente provincia en este ranking que es Alajuela, lo cual parece ser un comportamiento común, pues estamos hablando de la capital del país, la cual es transitada por miles de vehículos a diario.
+
 
 # Gráfica de Barras para Hora del Accidente
 ```{r, echo=FALSE}
@@ -56,6 +61,9 @@ barChartHoraAccidente <- ggplot(data, aes (x = Hora)) +
 
 ggplotly(barChartHoraAccidente)
 ```
+
+Observando esta gráfica de barras, podemos notar que la mayor cantidad de accidentes ocurre entre las 3:00 PM y las 8:00 PM aproximadamente, esto parecer tener relación con el hecho de que dicho intervalo de tiempo comprende la hora pico, donde ocurre un alto flujo vehicular y por tanto hay mayor probabilidad de que ocurran accidentes de tránsito.
+
 
 # Gráficas Bidimensionales
 ## Gráfica de Barras Apiladas del Tipo y Clase de Accidente
@@ -71,6 +79,9 @@ barChartTipoClaseAccidente <- ggplot(data, aes(x = Tipo.de.accidente)) +
 ggplotly(barChartTipoClaseAccidente)
 ```
 
+Mediante esta gráfica podemos observar que a pesar de que, en la totalidad de los tipos de accidentes de tránsito, se presentan solo heridos leves, si hay tipos de accidentes con una mayor tasa de gravedad o mortalidad, por ejemplo en las colisiones con motocicleta que es en la categoría donde se presentan mayor cantidad de personas graves o fallecidas, parece hacer sentido con que es la categoría donde hay más accidentes, además de que en una motocicleta el conductor es el chasis y por tanto es más propenso a sufrir daños mortales. 
+
+
 ## Gráfica de Barras Agrupadas del Tipo de Accidente y Tipo de Circulación
 ```{r, echo=FALSE}
 barChartTipoAccidenteEstadoTiempo <- ggplot(data, aes(x = Tipo.de.circulación)) +
@@ -84,6 +95,9 @@ barChartTipoAccidenteEstadoTiempo <- ggplot(data, aes(x = Tipo.de.circulación))
 
 ggplotly(barChartTipoAccidenteEstadoTiempo)
 ```
+
+A partir de este gráfico se puede visualizar que los accidentes donde hay mayor cantidad de muertos o graves es en donde el tipo de circulación es de frente, esto parece indicar que somos más propensos a sufrir heridas mortales si estamos involucrados en un accidente donde el impacto es frontal, asimismo tiene sentido este hecho pues en un impacto frontal están involucrados ambos vehículos, mientras que en un accidente por detrás, por ejemplo, el vehículo que choca por detrás es más propenso a sufrir un mayor impacto que el vehículo que recibe el choque. 
+
 
 # Gráfica Multidimensional
 ## Técnica de Incrustación de Dimensiones
@@ -105,6 +119,8 @@ multidimensionalPlot <- ggplot(dfMultidimensional, aes(x = Año,
 ggplotly(multidimensionalPlot)
 ```
 
+A traves de este diagrama se puede visualizar que a través de los años se mantiene una tendencia de que los accidentes de tránsito con mayor frecuencia son los que involucran colisiones con motocicletas, asimismo, estos en la mayor parte de las ocasiones se dan en horas de alto flujo de tránsito, entre las 3 PM y 8 PM aproximadamente, y un comportamiento observado es que la mayor parte de estos accidentes de tránsito son de heridos leves. 
+
 # Facetas
 
 ## Gráfica de Facetas del Año, Tipo de Accidente y la Frecuencia
@@ -119,3 +135,6 @@ chart <- ggplot(dfTipoAnno, aes(Año, n)) +
 
 ggplotly(chart)
 ```
+
+En este diagrama se puede observar un comportamiento interesante, y es que en el año 2020 la mayor parte de los tipos de accidentes bajó su frecuencia, podríamos acreditar esta situación a la pandemia de COVID19 que afectó considerable nuestro país en dicho año, y que nos obligó a estar en nuestros hogares y por ende, hubo un considerable decremento en el flujo vehicular lo que reduce las probabilidades de que ocurran accidentes. 
+
